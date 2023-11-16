@@ -1,0 +1,138 @@
+.cards {
+  padding-left: 8px;
+  padding-right: 8px;
+
+  @media (min-width: $tablet) {
+    padding: 0;
+  }
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -4px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(100% / 3 - 8px);
+    margin: 4px;
+    padding: 16px 8px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: 0.2s ease;
+
+
+    &:hover {
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.10);
+    }
+
+    &:nth-child(n+7) {
+      position: absolute;
+      transform: translate(-100%);
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &:nth-child(n+9) {
+      transition: 0.4s ease;
+    }
+
+    &:nth-child(n+18) {
+      transition: 0.8s ease;
+    }
+
+    @media (min-width: $tablet) {
+      width: calc(100% / 6 - 8px);
+    }
+
+    @media (min-width: $desktop) {
+      width: calc(100% / 9 - 8px);
+
+      &:nth-child(7),
+      &:nth-child(8),
+      &:nth-child(9) {
+        position: relative;
+        transform: none;
+        visibility: visible;
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+
+    &.gray {
+      background-color: $gray;
+    }
+
+    &.violet {
+      background-color: $violet;
+    }
+
+    &.green {
+      background-color: $green;
+    }
+
+    &.yellow {
+      background-color: $yellow;
+    }
+
+    &.pink {
+      background-color: $pink;
+    }
+
+    &.blue {
+      background-color: $blue;
+    }
+
+    &.fuchsia {
+      background-color: $fuchsia;
+    }
+
+    &.peach {
+      background-color: $peach;
+    }
+
+    &.aqua {
+      background-color: $aqua;
+    }
+
+
+  }
+
+  &__img {
+    display: block;
+    width: 72.7%;
+    aspect-ratio: 1/1;
+    padding: 8px;
+    object-fit: contain;
+    margin-bottom: 4px;
+
+    @media (min-width: $tablet) {
+      width: 65.61%;
+    }
+
+    @media (min-width: $desktop) {
+      width: 61%;
+    }
+  }
+
+  &__title {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 150%;
+  }
+
+  .isShow {
+    .cards__card {
+      position: relative;
+      transform: none;
+      pointer-events: all;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

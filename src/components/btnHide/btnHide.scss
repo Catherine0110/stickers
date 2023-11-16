@@ -1,0 +1,42 @@
+.btn-hide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 32px;
+  background-color: $white;
+  position: relative;
+  z-index: 5;
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease;
+
+    &:disabled {
+        opacity: 0.7;
+    }
+
+    &:hover:not(:disabled) {
+      opacity: 0.8;
+    }
+
+    &.show {
+      .arrow {
+        transform: rotate(180deg)
+      }
+    }
+  }
+
+
+  .arrow {
+    color: $red;
+    transition: 0.2s ease;
+    margin-right: 16px;
+  }
+
+  &__text {
+    font-size: 16px;
+    font-weight: 600;
+  }
+}

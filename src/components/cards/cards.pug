@@ -1,0 +1,6 @@
+.cards 
+    .cards__inner.js-cards-wrap
+        each card in contentSlider
+            .cards__card(class=`${card.color}` data-slider="main").js-card
+                img(src=`${card.src}`).cards__img
+                h3.cards__title #{card.title}

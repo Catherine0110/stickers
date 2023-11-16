@@ -1,0 +1,14 @@
+.slider
+  .slider__wrap
+    .slider__main.swiper.js-slider( id="main" data-slider=`{"slidesPerView": 1,"spaceBetween": 0, "effect": "fade"}`)
+      .slider__main-inner.swiper-wrapper
+        each val in contentSlider
+          .slider__main-item.swiper-slide
+            .slider__main-img
+              img(class=`slider__main-image` src=`${val.src}` alt=`${val.title}`) 
+            .slider__main-content
+              h2.slider__title #{val.title}
+              p.slider__text #{val.text} 
+      .slider__main-pagination         
+        .swiper-button-prev
+        .swiper-button-next

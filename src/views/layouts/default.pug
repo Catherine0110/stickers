@@ -1,0 +1,18 @@
+block variables
+include ../helpers/mixins.pug
+
+doctype html
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title #{title ? title : 'Заголовок страницы'}
+    link(href="/assets/styles/main.css" rel="stylesheet")
+  body
+    .wrapper      
+      .container
+        block content
+
+    script(src="/assets/js/index.js")
+    block scripts
