@@ -377,6 +377,8 @@ body {
       flex-wrap: wrap;
   margin: -4px;
   position: relative;
+  -webkit-transition: height 0.5s ease;
+  transition: height 0.5s ease;
   overflow: hidden;
 }
 .cards__card {

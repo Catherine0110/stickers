@@ -9225,22 +9225,6 @@
       });
     });
   }
-  var cardsIntervalAnimate = (blockHeight, scrollHeight, animateHide, btn) => {
-    let interval = setInterval(() => {
-      if (blockHeight > scrollHeight) {
-        animateHide ? blockHeight-- : scrollHeight++;
-        cardsWrap.style.height = `${animateHide ? blockHeight : scrollHeight}px`;
-        if (scrollHeight === blockHeight) {
-          clearInterval(interval);
-          btn.removeAttribute("disabled");
-          if (animateHide) {
-            cardsWrap.classList.remove("isShow");
-            cardsWrap.style.height = "";
-          }
-        }
-      }
-    }, 0.1);
-  };
   btnHide.addEventListener("click", () => {
     btnHide.classList.toggle("show");
     let scrollHeight = cardsWrapHeight;
@@ -9248,12 +9232,14 @@
     if (btnHide.classList.contains("show")) {
       btnHideText.textContent = "\u0421\u043A\u0440\u044B\u0442\u044C";
       cardsWrap.classList.add("isShow");
-      let blockHeight = cardsWrap.offsetHeight;
-      cardsIntervalAnimate(blockHeight, scrollHeight, false, btnHide);
+      cardsWrap.style.height = `${cardsWrap.scrollHeight}px`;
+      btnHide.removeAttribute("disabled");
     } else {
       btnHideText.textContent = btnHideTextContent;
-      let blockHeight = cardsWrap.offsetHeight;
-      cardsIntervalAnimate(blockHeight, scrollHeight, true, btnHide);
+      cardsWrap.style.height = `${scrollHeight}px`;
+      cardsWrap.classList.remove("isShow");
+      cardsWrap.style.height = ``;
+      btnHide.removeAttribute("disabled");
     }
   });
   handleCardsClick(cards);
